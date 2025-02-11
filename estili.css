@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo y colores generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #81cbf9 10%, #4699dc 100%); /* Azul cielo y azul medio */
+    height: 100vh;
+    overflow: hidden;
+    color: #fff;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1.birthday-message {
+    font-size: 4em;
+    font-family:'Times New Roman', Times, serif;
+    color: #d3de40;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    margin-top: 20%;
+}
+
+.sub-message {
+    font-size: 1.5em;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+.album-section {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.album-section h2 {
+    font-size: 2.5em;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+/* Carrusel */
+.carousel-container {
+    position: relative;
+    width: 30%;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Controles del carrusel */
+button {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(228, 228, 228);
+    border: none;
+    font-size: 2em;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    transform: translateY(-50%);
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Estilos para el contenedor del vídeo */
+.video-container {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-container h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* Estilo del vídeo */
+video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Confetti Animado */
+@keyframes confetti {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+#confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 9999;
+    animation: confetti 3s infinite;
+}
+
+#confetti::before, #confetti::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 165, 0, 0.8);
+    border-radius: 50%;
+    animation: confetti 3s infinite;
+}
+
+#confetti::after {
+    background-color: rgba(0, 204, 255, 0.8);
+    animation-delay: 1s;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* MEDIA QUERIES PARA RESPONSIVIDAD */
+
+/* Para pantallas de 768px o menos */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    h1.birthday-message {
+        font-size: 3em;
+        margin-top: 15%;
+    }
+
+    .sub-message {
+        font-size: 1.2em;
+    }
+
+    .album-section h2 {
+        font-size: 2em;
+    }
+
+    /* Carrusel */
+    .carousel-container {
+        width: 80%;
+    }
+
+    .carousel-item img {
+        width: 80%;
+    }
+
+    button {
+        font-size: 1.5em;
+        padding: 5px;
+    }
+
+    footer {
+        font-size: 0.9em;
+    }
+}
+
+/* Para pantallas de 480px o menos */
+@media (max-width: 480px) {
+    h1.birthday-message {
+        font-size: 2.5em;
+        margin-top: 10%;
+    }
+
+    .sub-message {
+        font-size: 1.1em;
+    }
+
+    .album-section h2 {
+        font-size: 1.8em;
+    }
+
+    /* Carrusel */
+    .carousel-container {
+        width: 90%;
+    }
+
+    button {
+        font-size: 1.2em;
+        padding: 4px;
+    }
+
+    footer {
+        font-size: 0.8em;
+    }
+}
